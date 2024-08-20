@@ -59,7 +59,7 @@ process_folders() {
                     if [[ "$file" == *.fasta ]]; then
                     	echo "Found .fasta file: $file"
                     	echo "Running absrel for $file..."
-                    	hyphy absrel --alignment $file --tree {insert tree file path here} --kill-zero-lengths No \
+                    	hyphy absrel --alignment $file --tree {insert tree file path here} --kill-zero-lengths No --syn-rates 3 \
                     	--code Universal --branches Foreground --srv Yes --multiple-hits None || { echo "Error processing file: $file"; exit 1; }
                     	
                     	#Move newly created *ABSREL.json file to aBSREL subdirectory
